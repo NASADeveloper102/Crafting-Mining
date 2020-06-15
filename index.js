@@ -1,22 +1,5 @@
 var Game;
-var LogInState = new State( "Login", 
-// Enter
-() => {
-    if( document.cookie.length != 0 ){
-        $("#UserForm").text("fdafds");
-    }
-},
-// Update
-() => {
-
-},
-// Render
-() => { /* Blank because obvious reasons*/ },
-// Exit 
-() => {
-    $("body").html('<canvas width = "800" height="600"></canvas>');
-}
-);
+var PreGameState;
 var MainMenuState = new State("MainMenu",
 // Enter
 () => {},
@@ -64,6 +47,20 @@ var MainMenuLoadingState = new State("MainMenu_Load",
 // Exit
 () => {}
 );
-Game = new GameController(LogInState);
+PreGameState = new State( "PreGame", 
+// Enter
+() => {
+    $("#newGame").click(event => {Game.Enter(MainMenuLoadingState);});
+},
+// Update
+() => { /* Blank because of obvious reasons */ },
+// Render
+() => { /* Blank because of obvious reasons*/ },
+// Exit 
+() => {
+    $("#Form").hide();
+    $("body").append("<canvas width = '800px' height = '600px'></canvas>");
 
-
+}
+);
+Game = new GameController(PreGameState);

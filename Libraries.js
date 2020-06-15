@@ -41,3 +41,10 @@ class GameController{
         this.CurrentState.Render();
     }
 }
+
+
+class Player{
+    constructor( x, y ){
+
+    }
+}
