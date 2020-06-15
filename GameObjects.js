@@ -35,7 +35,7 @@ class Player{
         this.Weapons = {} // []
         this.Consumables = {} // []
     }
-    AddWeapon( , Number ){
+    AddWeapon( Name, Number ){
         
     }
 }

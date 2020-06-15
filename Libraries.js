@@ -31,6 +31,8 @@ class GameController{
         this.CurrentState.Exit();
         this.CurrentState = _State;
         this.CurrentState.Enter();
+        clearInterval(this.UpdateInterval);
+        clearInterval(this.RenderInterval);
         this.UpdateInterval = setInterval( this.CurrentState.Update, 1000/this.FrameRate );
         this.RenderInterval = setInterval( this.CurrentState.Render, 10 );
     }
