@@ -43,3 +43,25 @@ class GameController{
         this.CurrentState.Render();
     }
 }
+class Triangle{
+    constructor( x1, y1, x2, y2, x3, y3 ){
+        this.X1 = x1;
+        this.X2 = x2;
+        this.X3 = x3;
+        this.Y1 = y1;
+        this.Y2 = y2;
+        this.Y3 = y3;
+    }
+    Split(){
+        return [new Triangle(this.X1, this.Y1, this.X2, this.Y2, this.X1, this.Y2)]
+    }
+}
+
+function CheckBounds( ObjectPosition, Body ){
+    if(ObjectPosition.X >= Body.X && ObjectPosition.X <= Body.X + Body.Width ){
+        if(ObjectPosition.Y >= Body.Y && ObjectPosition.Y <= Body.Y + Body.Height ){
+            return true;
+        }
+    }
+    return false;
+}
