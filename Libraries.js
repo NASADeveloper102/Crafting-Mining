@@ -53,7 +53,8 @@ class Triangle{
         this.Y3 = y3;
     }
     Split(){
-        return [new Triangle(this.X1, this.Y1, this.X2, this.Y2, this.X1, this.Y2)]
+        return [new Triangle(this.X1, this.Y1, this.X2, this.Y2, this.X1, this.Y2),
+            new Triangle(this.X1, this.Y1, this.X3, this.Y3, this.X1, this.Y3)];
     }
 }
 
