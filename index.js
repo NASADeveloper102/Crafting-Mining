@@ -30,7 +30,6 @@ function(){
 // Render
 function(){
     // Clear Screen with Blac
-    k
     $("canvas").drawRect({
         fillStyle : "#000",
         x : 0, y : 0,

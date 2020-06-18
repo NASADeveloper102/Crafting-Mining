@@ -56,13 +56,31 @@ class Triangle{
         return [new Triangle(this.X1, this.Y1, this.X2, this.Y2, this.X1, this.Y2),
             new Triangle(this.X1, this.Y1, this.X3, this.Y3, this.X1, this.Y3)];
     }
+    Draw(){
+        $("canvas").drawLine({
+            strokeStyle : "#FFF",
+            strokeWidth : 6,
+            x1 : this.X1, y1 : this.Y1,
+            x2 : this.X2, y2 : this.Y2,
+            x3 : this.X3, y3 : this.Y3,
+            closed : true
+        });
+    }
+    CheckPoint( x, y ){
+        return y >= this.Y3 && y <= (this.Y1 - this.Y3)/(this.X2 - this.X3) * x;
+    }
 }
 
 function CheckBounds( ObjectPosition, Body ){
-    if(ObjectPosition.X >= Body.X && ObjectPosition.X <= Body.X + Body.Width ){
-        if(ObjectPosition.Y >= Body.Y && ObjectPosition.Y <= Body.Y + Body.Height ){
-            return true;
+    if( Body.Rotation % 90 === 0 ){
+        if(ObjectPosition.X >= Body.X && ObjectPosition.X <= Body.X + Body.Width ){
+            if(ObjectPosition.Y >= Body.Y && ObjectPosition.Y <= Body.Y + Body.Height ){
+                return true;
+            }
         }
+    }
+    else{
+
     }
     return false;
 }
